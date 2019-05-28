@@ -1,0 +1,63 @@
+<div class="container">
+  <button (click)="myClickFunction($event)" type="button" id="b" class="btn btn-primary btn-lg btn-block">
+    <i class="fa fa-star"></i>
+    Level 1
+  </button>
+  <div id="myDIV" style="display:none">
+    <div class="form-row">
+     <div class="custom-control custom-checkbox card" style="width: 18rem;">
+          <input type="checkbox" class="custom-control-input" #level1C  />
+          <label class="custom-control-label" for="defaultUnchecked">C</label>
+          <ul>
+            <li><a href="#">Ref 1</a></li>
+            <li><a href="#">Ref 2</a></li>
+            <li><a href="#">Ref 3</a></li>
+            <li><button type="button" class="btn btn-success" (click)="clicked()" routerLink="/exam">Take Exam</button></li>
+          </ul>
+      </div> 
+ 
+      <div class="custom-control custom-checkbox card" style="width: 18rem;">
+          <input type="checkbox" class="custom-control-input" name="level1"  />
+          <label class="custom-control-label" for="defaultUnchecked">C++</label>
+          <ul>
+            <li><a href="#">Ref 1</a></li>
+            <li><a href="#">Ref 2</a></li>
+            <li><a href="#">Ref 3</a></li>
+            <li><button  type="button" class="btn btn-success" routerLink="/exam">Take Exam</button></li>
+          </ul>
+      </div> 
+    </div>
+  
+  </div>
+
+  
+  <button (click)="myClickFunction($event)" type="button" class="btn btn-primary btn-lg btn-block" disabled>
+    <i class="fa fa-star"></i>
+    Level 2
+  </button>
+  <div id="myDIV" style="display:none">
+    This is a DIV element.
+  </div>
+
+
+
+  <button (click)="myClickFunction($event)" type="button" class="btn btn-primary btn-lg btn-block" disabled>
+    <i class="fa fa-star"></i>
+    Level 3
+  </button>
+
+  <div id="myDIV" style="display:none">
+    This is a DIV element.
+  </div>
+
+
+
+  <button (click)="myClickFunction($event)" type="button" class="btn btn-primary btn-lg btn-block" disabled>
+    <i class="fa fa-star"></i>
+    Level 4
+  </button>
+  <div id="myDIV" style="display:none">
+    This is a DIV element.
+  </div>
+
+</div>

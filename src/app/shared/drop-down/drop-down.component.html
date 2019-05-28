@@ -1,0 +1,11 @@
+<li class="" data-toggle="collapse" href="#collapseExample"
+                            (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                                <a class="nav-link">
+                                   <ng-content select=".header"></ng-content>
+                                </a>
+                                <ul class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed">
+                                    <ng-content select=".body"></ng-content>
+                                   
+                                </ul>
+                            </li>

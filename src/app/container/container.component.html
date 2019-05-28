@@ -1,0 +1,18 @@
+
+  <!-- <div  [ngClass]="{'container-fluid':!home}" class="container"> -->
+      <div  [ngClass]="{'container-fluid':!home, 'container':home}" >
+    <div *ngIf="home else a;" class="row ">
+        <app-slider class="col-md-8"  ></app-slider>
+                      
+      <app-log-in  class="col-md-4"></app-log-in> 
+      </div>
+     
+<ng-template #a>
+    <div class="row">
+   <app-side-bar class="col-md-3 side" ></app-side-bar>
+   <app-content-profile class="col-md-9 content"  ></app-content-profile> 
+  
+  </div> 
+  </ng-template>
+ 
+  </div>

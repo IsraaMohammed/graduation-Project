@@ -1,0 +1,25 @@
+.container{
+    margin-top: 100px;
+}
+button{
+    margin-top: 20px;
+    
+}
+#myDIV {
+    width: 100%;
+    padding: 40px 40px;
+    background-color: lightblue;
+    margin-top: 10px;
+}
+ .card{
+  padding: 40px 40px;
+ }
+ul{
+   
+    padding: 10px 10px;
+    align-items: center;
+    justify-items: center;
+}
+li{
+    list-style: none;
+}
