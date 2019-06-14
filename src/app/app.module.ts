@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import {CustomFormsModule} from 'ng2-validation';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LogInComponent } from './container/log-in/log-in.component';
 import { ContainerComponent } from './container/container.component';
@@ -25,9 +27,24 @@ import { AboutComponent } from './about/about.component';
 import { CommunityComponent } from './community/community.component';
 import { HomeComponent } from './home/home.component';
 import { RankComponent } from './rank/rank.component';
-import { JobProfileService } from './job-profile.service';
+import { JobProfileService } from './Services/job-profile.service';
 import { ExamComponent } from './exam/exam.component';
 import { CourseComponent } from './course/course.component';
+import { LoginPopupComponent } from './container/login-popup/login-popup.component';
+import { UserRegisterService } from './Services/user-register.service';
+import { UserLoginService } from './Services/user-login.service';
+import { ServecesService } from './Services/serveces.service';
+import { NavLogOutComponent } from './container/nav-log-out/nav-log-out.component';
+// import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import { AlertifyService } from './Services/alertify.service';
+import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
+
+export function tokenGetter(){
+  return localStorage.getItem('token ')
+}
+
+
 
 
 @NgModule({
@@ -47,29 +64,40 @@ import { CourseComponent } from './course/course.component';
     AboutComponent,
     CommunityComponent,
     HomeComponent,
-    RankComponent,CourseComponent,ExamComponent
+    RankComponent,CourseComponent,ExamComponent, LoginPopupComponent, NavLogOutComponent, PhotoEditorComponent
   ],
   imports: [
     BrowserModule, 
     AppRoutingModule,   
     HttpClientModule,
     NgbModule,
+    FileUploadModule,
+    FormsModule,
+    CustomFormsModule,
+    ReactiveFormsModule ,
       RouterModule.forRoot([
-        { path: '', component: ContainerComponent },
-        { path: 'container', component: ContainerComponent },
         { path: 'home', component: HomeComponent },
+        { path: 'container', component: ContainerComponent },
         { path: 'community', component: CommunityComponent },
         { path: 'signup', component: SignUpComponent },
         { path: 'login', component: LogInComponent },
         { path: 'about', component: AboutComponent },
-       
         {path:'urRank',component:RankComponent},
         {path:'exam',component:ExamComponent},
         {path:'course',component:CourseComponent},
-        { path: '**', component: ErrorComponent }
-      ])
+         {path:'photo',component:PhotoEditorComponent},
+        { path: '', component: HomeComponent },
+        {path: '**', component: ErrorComponent }
+      ]),JwtModule.forRoot({
+        config:{
+          tokenGetter: tokenGetter,
+          whitelistedDomains:['localhost:49444'],
+          blacklistedRoutes:['localhost:49444/api/Auth']
+        }
+      })
        ],
-  providers: [JobProfileService],
+       providers: [JobProfileService,AlertifyService,UserRegisterService,UserLoginService,ServecesService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { jobProfile } from 'src/app/_Model/jobProfileCards';
-import {JobProfileService} from '../../job-profile.service';
+import {JobProfileService} from '../../Services/job-profile.service';
 import { Subscription } from 'rxjs';
 
 
@@ -31,7 +31,7 @@ export class ContentProfileComponent implements OnInit {
       this.data = data;
       console.log(this.data);
       
-    });
+    }),
     error =>{
       console.log(error);
       

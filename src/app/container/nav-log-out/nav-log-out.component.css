@@ -1,0 +1,51 @@
+.navbarSupportedContent {
+    position: relative;
+}
+.search {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    right: 0;
+    border-radius: 0;
+}
+nav.navbar-light .collapse .navbar-nav li a {
+    font-size: 16px;
+}
+.btn-search {
+    background-color: #0156b8;
+    border: 0;
+    color: #fff;
+    
+}
+.btn-facebook {
+    background-color: rgb(59, 89, 152);
+    color: #fff;
+    width: 100%;
+}
+.btn-login {
+    background-color: #2A73CC;
+    border: 1px solid #2A73CC;
+    color: #fff;
+    width: 100%;
+}
+.line {
+    position: relative;
+    text-align: center;
+}
+.line span {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+}
+.line::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: #eee;
+    top: 50%;
+    left: 0;
+    position: absolute;
+    z-index: 5;
+}

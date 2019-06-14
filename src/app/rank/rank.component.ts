@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rank.component.css']
 })
 export class RankComponent implements OnInit {
-
-  constructor() { }
+levels:string[];
+  constructor() { 
+    this.levels=["C","C++","Basic SQL","OOP"];
+  }
 
   ngOnInit() {
   }
+
 
 }

@@ -1,0 +1,64 @@
+<a class="nav-link"#txt *ngIf="!show" routerLink="/home" (click)="openBackDropCustomClassLogin(content)" style="font-size: 17px">
+                     
+  {{text}}
+</a>
+<a class="nav-link"#txt *ngIf="show" routerLink="/home" style="font-size: 17px">
+                     
+ Log Out
+</a>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Login </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup, modal);">
+  <div class="modal-body">
+    <div class="form-containt" id="login">
+      <ul class="list-group">
+              <li class="list-group-item list-group-item ">
+                  <div class="form-group">
+                      <button class="btn btn-facebook"><i class="fa fa-facebook"></i> log in with facebook </button>
+                  </div>
+                  <div class="line">
+                      <span>Or</span>
+                  </div>
+                
+                <div class="form-group">
+                    <label for="Username">User Name</label>
+                    <input type="text" class="form-control" formControlName="Username">
+                    <p *ngIf="formGroup.controls.Username.errors?.rangeLength" class="alert alert-danger">Please Enter Valid UserName</p>
+            
+                </div>
+  
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" formControlName="Password">
+                    <p *ngIf="formGroup.controls.Password.errors?.rangeLength" class="alert alert-danger">Please Enter Valid Password Again !</p>
+                  
+                </div>
+                <p  [ngClass]="{'alert alert-warning':msg}" #txt>{{this.msg}}</p>
+                <a href="#" class="d-block my-3">Forgot password?</a>
+  
+                <div class="form-group">
+                      <input type="submit" class="form-control btn btn-login" value="Sign in" [disabled]="!formGroup.valid" />
+                </div>
+                <div class="line">
+                      <span>Or</span>
+                  </div>
+                  <a href="#" class="d-block my-3 text-center">Log in with your organization</a>
+                  <p class="text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+  
+  </li>
+              
+              </ul>
+      
+</div>
+  </div>
+</form>
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div> -->
+</ng-template>

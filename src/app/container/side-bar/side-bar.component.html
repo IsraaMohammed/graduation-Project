@@ -99,7 +99,7 @@
 
 
             </div> -->
-<div class="admin-sidebar">
+<!-- <div class="admin-sidebar">
     <div class="sidebar-background" style="background-image: url('../../assets/imgs/bg1.jpg')">
         <div class="sidebar-wrapper">
             <div class="logo">
@@ -107,12 +107,12 @@
             </div>
             <div class="user-info">
                 <a class="" data-toggle="collapse" href="#user-info" aria-expanded="false" aria-controls="user-info">
-                    <h3>{{userInfo.UserName}} <i class="caret"></i></h3>
+                    <h3>{{userInfo.Username}} <i class="caret"></i></h3>
                 </a>
                 <ul class="collapse" id="user-info">
-                    <li><a href="file:///F:/freelancer/aloverasales/admin-profile.html" class="nav-link">My Profile</a>
+                    <li><a href="#" class="nav-link">My Profile</a>
                     </li>
-                    <li><a href="file:///F:/freelancer/aloverasales/editadmin-profile.html" class="nav-link">Edit
+                    <li><a href="#" class="nav-link">Edit
                             Profile</a></li>
                 </ul>
             </div>
@@ -121,34 +121,34 @@
                 <app-drop-down>
                     <ng-container class="header">
                         <i class="fa fa-cube"></i>
- Category <i class="caret"></i>
+                        Category <i class="caret"></i>
                     </ng-container>
                     <ng-container class="body">
                         <li>Add Category</li>
                         <li>All Category</li>
                     </ng-container>
-                  
 
-                </app-drop-down>
-             
-                <app-drop-down>
+
+                </app-drop-down> 
+
+                 <app-drop-down>
                         <ng-container class="header">
                                 <i class="fa fa-signal"></i> Career Paths <i class="caret"></i>
                         </ng-container>
                         <ng-container class="body">
-                            <li>.NET Developer</li>
+                            <li [routerLink]="['/course']" class="nav-link" routerLinkActive="router-link-active" >.NET Developer</li>
                         </ng-container>
-                    </app-drop-down>
-    
-             
+                    </app-drop-down> 
+
+
                 <li class="">
                     <a class="nav-link" routerLink="/urRank">
-                        <i class="fa fa-star" ></i> Your Rank
+                        <i class="fa fa-star"></i> Your Rank
                     </a>
                 </li>
                 <li class="">
                     <a class="nav-link" routerLink="/community">
-                        <i class="fa fa-users" ></i>Community
+                        <i class="fa fa-users"></i>Community
                     </a>
                 </li>
                 <li class="">
@@ -158,11 +158,88 @@
                 </li>
                 <li class="">
                     <a class="nav-link" routerLink="/home">
-                        <i class="fa fa-sign-out" ></i> Log Out 
+                        <i class="fa fa-sign-out"></i> Log Out
                     </a>
-                  
-                    
+
+
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+<div class="admin-sidebar" *ngIf="loggedIn()">
+    <div class="sidebar-background" style="background-image: url('../../assets/imgs/bg1.jpg')">
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <img [src]="userInfo.Image" class="img-fluid photo-radius">
+            </div>
+
+            <div class="user-info" style="list-style: none;">
+                <app-drop-down>
+                    <ng-container class="header">
+                            <h3>{{userInfo.Username}} <i class="caret"></i></h3>
+                    </ng-container>
                    
+                        <ng-container class="body">
+                            <!-- <app-photo-editor [photos]="userInfo.Image"></app-photo-editor> -->
+                            <li><a [routerLink]="['/photo']"  routerLinkActive="router-link-active" class="nav-link">My Profile</a></li>
+                            <li><a class="nav-link">Edit Profile</a></li>
+                        </ng-container>
+               
+             
+            </app-drop-down>
+            </div>
+            <ul class="sidebar-nav">
+
+                <app-drop-down>
+                    <ng-container class="header">
+                        <i class="fa fa-cube"></i>
+                        Category <i class="caret"></i>
+                    </ng-container>
+                    <ng-container class="body">
+                        <li>Add Category</li>
+                        <li>All Category</li>
+                    </ng-container>
+
+
+                </app-drop-down>
+
+                <app-drop-down>
+                    <ng-container class="header">
+                        <i class="fa fa-signal"></i> Career Paths <i class="caret"></i>
+                    </ng-container>
+                    <ng-container class="body">
+                        <li [routerLink]="['/course']" class="nav-link" routerLinkActive="router-link-active">.NET
+                            Developer
+                        </li>
+                    </ng-container>
+                </app-drop-down>
+
+
+                <li class="">
+                    <a class="nav-link" routerLink="/urRank">
+                        <i class="fa fa-star"></i> Your Rank
+                    </a>
+                </li>
+                <li class="">
+                    <a class="nav-link" routerLink="/community">
+                        <i class="fa fa-users"></i>Community
+                    </a>
+                </li>
+                <li class="">
+                    <a class="nav-link" routerLink="/container">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="">
+                    <!-- routerLink="/home" -->
+                    <a class="nav-link" (click)="logOut()" routerLink="/home">
+                        <i class="fa fa-sign-out"></i> Log Out
+                    </a>
+
+
+
                 </li>
             </ul>
         </div>

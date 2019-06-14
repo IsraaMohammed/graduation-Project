@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { jobProfile } from './_Model/jobProfileCards';
+import { jobProfile } from '../_Model/jobProfileCards';
 @Injectable({
   providedIn: 'root'
 })

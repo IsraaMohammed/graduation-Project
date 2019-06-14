@@ -1,1 +1,82 @@
-israaa
+ <a class="nav-link"  *ngIf="!show" routerLink="/home" id="signup" (click)="openBackDropCustomClass(contentsignup)"
+  style="font-size: 17px">
+
+  Sign UP
+</a>
+<ng-template #contentsignup let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Register</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <!-- <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup);modal.close('Save click')" >  -->
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup, modal);">
+    <div class="modal-body">
+      <div class="form-containt" id="login">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item ">
+
+            <div class="form-group">
+              <button class="btn btn-facebook"><i class="fa fa-facebook"></i> log in with facebook </button>
+            </div>
+            <div class="line">
+              <span>Or</span>
+            </div>
+
+            <div class="form-group">
+              <label for="Email">User Name</label>
+              <input type="text" class="form-control" formControlName="Username" />
+              <p *ngIf="formGroup.controls.Username.errors?.rangeLength" class="alert alert-danger">Please Enter Valid UserName,rangeLength must between[3:30]</p>
+              <!-- <div *ngIf="formGroup.get('Username').touch && formGroup.get('Username').invalid " class="alert alert-danger">
+                      please enter your email</div>
+              -->
+              <ngb-alert [ngClass]="{'alert alert-warning':msgName}" #txt>{{this.msgName}}</ngb-alert>
+                </div>
+              <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" class="form-control" formControlName="Email">
+                <p *ngIf="formGroup.controls.Email.errors?.email"  class="alert alert-danger">Please Enter Valid Email Again Must be Email Format   !</p>
+                <ngb-alert  [ngClass]="{'alert alert-warning':msg}" #txt>{{this.msg}}</ngb-alert>
+               
+              </div>
+
+              <div class="form-group">
+                <label for="PWD">Password</label>
+                <input type="password" class="form-control" formControlName="Password">
+                <p *ngIf="formGroup.controls.Password.errors?.rangeLength" class="alert alert-danger">Please Enter Valid Password Again, rangeLength must between[8:12] !</p>
+
+              </div>
+              <div class="form-group">
+                <label for="PWD">Repeat Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control">
+                <p *ngIf="formGroup.controls.confirmPassword.errors?.equalTo" class="alert alert-danger">Please Confirm Password Again !
+
+                </p>
+            
+              </div>
+              <a href="#" class="d-block my-3">Forgot password?</a>
+
+              <div class="form-group">
+                <input type="submit" class="form-control btn btn-login btnSubmit" value="Sign up"
+                  [disabled]="!formGroup.valid" />
+              </div>
+
+              <div class="line">
+                <span>Or</span>
+              </div>
+              <a href="#" class="d-block my-3 text-center">Log in with your organization</a>
+              <p class="text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of
+                Service apply.</p>
+
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </form>
+
+</ng-template>

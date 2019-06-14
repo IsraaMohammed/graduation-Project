@@ -1,4 +1,10 @@
-<div class="container">
+<app-nav-log-out></app-nav-log-out>
+<div class="container-fluid row">
+  <div class="col-md-3" style="padding: 0px;">
+      <app-side-bar></app-side-bar>
+
+  </div>
+<div class="col-md-9" >
   <button (click)="myClickFunction($event)" type="button" id="b" class="btn btn-primary btn-lg btn-block">
     <i class="fa fa-star"></i>
     Level 1
@@ -32,6 +38,7 @@
 
   
   <button (click)="myClickFunction($event)" type="button" class="btn btn-primary btn-lg btn-block" disabled>
+  
     <i class="fa fa-star"></i>
     Level 2
   </button>
@@ -60,4 +67,5 @@
     This is a DIV element.
   </div>
 
+</div>
 </div>

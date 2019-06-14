@@ -1,3 +1,83 @@
-<p>
-  rank works!
-</p>
+<app-nav-log-out></app-nav-log-out>
+<div class="container-fluid row">
+  <div class="col-md-3" style="padding: 0px;">
+      <app-side-bar></app-side-bar>
+
+  </div>
+<div class="col-md-9" >
+<section>
+  <!-- <div class="container"> -->
+    <h1 class="text-center">Your Rank</h1>
+    <div class="timeline flex-container">
+      <div class="timeline-item flex-items-default selected">
+        <div class="timeline-content text-left animated bounceIn">
+          <h2>Level 1</h2>
+          <p>
+            Congratulations! You Passed This Level.
+          </p>
+          <div class="hexagon"></div>
+          <!-- <i class="material-icons">explore</i> -->
+          <div class="levels">
+             <ul>
+              
+                <li style="cursor:pointer;padding:2px;list-style: none;" onclick="appendToMessage(event)" *ngFor="let item of levels" >😊  {{item}}</li>
+            
+           
+          </ul></div>
+        </div>
+      </div>
+      <div class="timeline-item flex-items-default">
+        <div class="timeline-content text-left">
+          <h2>Level 2</h2>
+          <p>
+            Congratulations! You Passed This Level.
+          </p>
+          <div class="hexagon"></div>
+          <i class="material-icons">border_style</i>
+          
+         
+        </div>
+      </div>
+      <div class="timeline-item flex-items-default">
+        <div class="timeline-content text-left">
+          <h2>Level 3</h2>
+          <p>
+            Congratulations! You Passed This Level.
+          </p>
+          <div class="hexagon"></div>
+          <i class="material-icons">format_shapes</i>
+        </div>
+      </div>
+      <div class="timeline-item flex-items-default">
+        <div class="timeline-content text-left">
+          <h2>Level 4</h2>
+          <p>
+            Congratulations! You Passed This Level.
+          </p>
+          <div class="hexagon"></div>
+          <i class="material-icons">rate_review</i>
+        </div>
+      </div>
+      <!-- <div class="timeline-item flex-items-default">
+          <div class="timeline-content text-left">
+            <h2>Ship</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Provident eveniet nulla amet, sapiente voluptatum praesentium.
+            </p>
+            <div class="hexagon"></div>
+            <i class="material-icons">important_devices</i>
+          </div>
+        </div> -->
+
+      <div class="dropdown animated bounceIn" style="left: 12px;">
+        <div class="inner">
+          <div class="arrow-down"></div>
+         
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
+</div>
+</div>

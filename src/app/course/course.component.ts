@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import {ServecesService} from '../Services/serveces.service';
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
@@ -34,10 +34,6 @@ clicked(){
     }
  }
 
-
-  
-
-
 //   getCheckedCheckboxesFor(checkboxName) {
 //   var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]');
 //     for (let i = 0; i < checkboxes.length; i++) {
@@ -46,9 +42,13 @@ clicked(){
 //     }
 // }
   
-  constructor() { }
+  constructor(private ServecesService:ServecesService) { }
 
   ngOnInit() {
+    // this.ServecesService.getById(id).subscribe((data)=>
+    // {
+
+    // })
   }
 
 }
