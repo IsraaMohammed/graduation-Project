@@ -71,7 +71,7 @@ formGroup: FormGroup;
   
     }, error => {
       
-      if(error.status=='401')
+      if(error.status=='404' || error.status=='401')
       { 
         this.msg="UserName Or Password is Invalid";
         console.log(error)

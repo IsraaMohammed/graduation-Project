@@ -24,7 +24,7 @@ import { DropDownComponent } from './shared/drop-down/drop-down.component';
 import { ErrorComponent } from './error/error.component';
 import { AboutComponent } from './about/about.component';
 
-import { CommunityComponent } from './community/community.component';
+
 import { HomeComponent } from './home/home.component';
 import { RankComponent } from './rank/rank.component';
 import { JobProfileService } from './Services/job-profile.service';
@@ -39,6 +39,8 @@ import { NavLogOutComponent } from './container/nav-log-out/nav-log-out.componen
 import { FileUploadModule } from 'ng2-file-upload';
 import { AlertifyService } from './Services/alertify.service';
 import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
+import { CommunityComponent } from './community/community.component';
+import { AddQuestionComponent } from './community/add-question/add-question.component';
 
 export function tokenGetter(){
   return localStorage.getItem('token ')
@@ -64,7 +66,7 @@ export function tokenGetter(){
     AboutComponent,
     CommunityComponent,
     HomeComponent,
-    RankComponent,CourseComponent,ExamComponent, LoginPopupComponent, NavLogOutComponent, PhotoEditorComponent
+    RankComponent,CourseComponent,ExamComponent, LoginPopupComponent, NavLogOutComponent, PhotoEditorComponent,AddQuestionComponent
   ],
   imports: [
     BrowserModule, 
@@ -86,7 +88,9 @@ export function tokenGetter(){
         {path:'exam',component:ExamComponent},
         {path:'course',component:CourseComponent},
          {path:'photo',component:PhotoEditorComponent},
+         {path:'community/addQuestion', component:AddQuestionComponent},
         { path: '', component: HomeComponent },
+      
         {path: '**', component: ErrorComponent }
       ]),JwtModule.forRoot({
         config:{

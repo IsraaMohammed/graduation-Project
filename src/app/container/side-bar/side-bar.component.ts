@@ -25,6 +25,7 @@ userInfo: user;
       id:1,Image:'../../assets/imgs/user.png',Username:Username
 
     }
+    
   
    }
 

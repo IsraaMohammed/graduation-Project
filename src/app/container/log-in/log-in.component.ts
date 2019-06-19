@@ -28,11 +28,13 @@ formGroup:FormGroup;
   }
 onSubmit(form?:NgForm)
 {
+
 this.loginservice.LoginUser(form.value).subscribe((data:any)=>
 {
-  alert(data);
-  if(data !=null){
-   
+  console.log(data);
+  if(localStorage.getItem('token'))
+  {
+ 
     this.resetform(form);
     this.router.navigate(['container']);
     this.show=true;
@@ -40,7 +42,7 @@ this.loginservice.LoginUser(form.value).subscribe((data:any)=>
 
 }, error => {
       
-  if(error.status=='401')
+  if(error.status=='404' ||error.status=='401')
   { 
     this.msg="UserName Or Password is Invalid";
     console.log(error)

@@ -38,10 +38,11 @@ import { environment } from 'src/environments/environment';
 })
 export class UserLoginService {
 
-  readonly rootUrl=environment.apiUrl + 'Auth/';
+  readonly rootUrl=environment.apiUrl + '/Auth/';
 user:user;
 jwtHelper=new JwtHelperService();
 decodedToken :any;
+isLoggedIn:boolean=false;
   constructor(private http:HttpClient) { }
 
   LoginUser(user:user)
@@ -49,17 +50,20 @@ decodedToken :any;
     const body :user={
       "Username":user.Username,
       "Password":user.Password
-    }
+       }
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };  
     // const httpOptions = { headers: { 'Content-Type': 'application/json' } };  
-    return this.http.post<any>(this.rootUrl + 'Login',body,httpOptions).pipe(
+    return this.http.post<any>(this.rootUrl + 'login',body,httpOptions).pipe(
       map((res:any)=>{
         const user = res;
         if(user){
+   
           localStorage.setItem('token',user.token);
           localStorage.setItem('currentUser',JSON.stringify(body.Username));
           this.decodedToken=this.jwtHelper.decodeToken(user.token);
-        console.log(this.decodedToken.nameid);
+          console.log(this.decodedToken.nameid);
+          // console.log(user.token)
+          this.isLoggedIn=true;
 
         }
       },error=>{console.log("Login failed")})

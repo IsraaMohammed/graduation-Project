@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <label for="Password">Password</label>
                     <input type="password" class="form-control" formControlName="Password">
-                    <p *ngIf="formGroup.controls.Password.errors?.rangeLength" class="alert alert-danger">Please Enter Valid Password Again !</p>
+                    <p *ngIf="formGroup.controls.Password.errors?.rangeLength" class="alert alert-danger">Please Enter Valid Password !!!</p>
                   
                 </div>
                 <p  [ngClass]="{'alert alert-warning':msg}" #txt>{{this.msg}}</p>
