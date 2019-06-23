@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding, ViewChild } from '@angular/core';
 import { user } from '../../../app/_Model/user';
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { UserRegisterService } from 'src/app/Services/user-register.service';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
@@ -11,7 +11,8 @@ import { CustomValidators } from 'ng2-validation';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class SignUpComponent implements OnInit {
   show: boolean;
@@ -20,12 +21,15 @@ export class SignUpComponent implements OnInit {
   msg:string='';
   msgName:string='';
 
-//   @ViewChild('txt')
-// newtxt:HTMLElement;
+  @ViewChild('content')
+content:string;
 
-  constructor(private modalService: NgbModal, private userRegister: UserRegisterService, private formbulider: FormBuilder) {
+  constructor(private modalService: NgbModal,config: NgbModalConfig, private userRegister: UserRegisterService, private formbulider: FormBuilder) {
     this.show = false;
+    config.backdrop = 'static';
+    config.keyboard = false;
   }
+  
   openBackDropCustomClass(contentsignup) {
     this.modalService.open(contentsignup, { backdropClass: 'light-blue-backdrop' });
   }
@@ -54,17 +58,23 @@ export class SignUpComponent implements OnInit {
       ConfirmPassword: ''
     }
   }
- 
-  onSubmit(form?: NgForm, modal?: any) {
+  // open(content) {
+  //   this.modalService.open(content);
+  // }
+  onSubmit(form?: NgForm, modal?: any,content?:any) {
     this.userRegister.registerUser(form.value).subscribe((data: any) => {
       console.log(data);
-      alert(data)
+     // alert(data)
       if (data != null) {
-        
+       
+        this.modalService.open(content);
         modal.close();
-        alert("Created");
+       // alert("Created");
         this.resetform(form);
         this.show = true;
+       
+       
+       
       }
 
 
@@ -73,7 +83,7 @@ export class SignUpComponent implements OnInit {
       {
         console.log(error);
         console.log(error.error);
-        alert("Your Name already exists");
+       // alert("Your Name already exists");
         this.msgName='User Name already exists';
 
       }

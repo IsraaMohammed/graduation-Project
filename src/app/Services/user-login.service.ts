@@ -49,7 +49,9 @@ isLoggedIn:boolean=false;
   {
     const body :user={
       "Username":user.Username,
-      "Password":user.Password
+      "Password":user.Password,
+      "Image":user.Image,
+    
        }
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };  
     // const httpOptions = { headers: { 'Content-Type': 'application/json' } };  
@@ -60,8 +62,15 @@ isLoggedIn:boolean=false;
    
           localStorage.setItem('token',user.token);
           localStorage.setItem('currentUser',JSON.stringify(body.Username));
+          // localStorage.setItem('url',JSON.stringify(body.Image));
+          // localStorage.setItem('email',JSON.stringify(body.Email));
+          // localStorage.setItem('password',JSON.stringify(body.Password));
           this.decodedToken=this.jwtHelper.decodeToken(user.token);
-          console.log(this.decodedToken.nameid);
+          console.log(this.decodedToken.unique_name[1]);
+          localStorage.setItem('url',JSON.stringify(this.decodedToken.unique_name[1]));
+          // console.log(this.decodedToken.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/uri);
+         
+
           // console.log(user.token)
           this.isLoggedIn=true;
 

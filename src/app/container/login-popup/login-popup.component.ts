@@ -20,7 +20,7 @@ formGroup: FormGroup;
   msg: string='';
   constructor(private modalService: NgbModal,private loginservice:UserLoginService,private router:Router) {
     this.show=false;
-     this.text="Log In";
+     this.text="Sign In";
    }
   openBackDropCustomClassLogin(content){
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
@@ -54,7 +54,7 @@ formGroup: FormGroup;
       // if (data != null)
        
         modal.close();
-        alert("Created");
+       // alert("Created");
         this.resetform(form);
         this.router.navigate(['container']);
         this.show=true;

@@ -172,10 +172,11 @@
     <div class="sidebar-background" style="background-image: url('../../assets/imgs/bg1.jpg')">
         <div class="sidebar-wrapper">
             <div class="logo">
-                <img [src]="userInfo.Image" class="img-fluid photo-radius">
+                <img [src]="userInfo.Image" class="img-fluid photo-radius ">
             </div>
 
             <div class="user-info" style="list-style: none;">
+                
                 <app-drop-down>
                     <ng-container class="header">
                             <h3>{{userInfo.Username}} <i class="caret"></i></h3>
@@ -187,7 +188,7 @@
                                 (click)="uploader.uploadAll()" >
                             <span class="glyphicon glyphicon-upload"></span> Upload 
                             </button> -->
-                            <app-photo-editor ></app-photo-editor>
+                            <app-photo-editor >{{userInfo.Image}}</app-photo-editor>
                             <!-- <li><a [routerLink]="['/photo']"  routerLinkActive="router-link-active" class="nav-link">My Profile</a></li>
                             <li><a class="nav-link">Edit Profile</a></li> -->
                         </ng-container>
@@ -196,8 +197,12 @@
             </app-drop-down>
             </div>
             <ul class="sidebar-nav">
-
-                <app-drop-down>
+                <li class="">
+                    <a class="nav-link" routerLink="/container">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                </li>
+                <!-- <app-drop-down>
                     <ng-container class="header">
                         <i class="fa fa-cube"></i>
                         Category <i class="caret"></i>
@@ -208,7 +213,7 @@
                     </ng-container>
 
 
-                </app-drop-down>
+                </app-drop-down> -->
 
                 <app-drop-down>
                     <ng-container class="header">
@@ -232,11 +237,7 @@
                         <i class="fa fa-users"></i>Community
                     </a>
                 </li>
-                <li class="">
-                    <a class="nav-link" routerLink="/container">
-                        <i class="fa fa-home"></i> Home
-                    </a>
-                </li>
+              
                 <li class="">
                     <!-- routerLink="/home" -->
                     <a class="nav-link" (click)="logOut()" routerLink="/home">

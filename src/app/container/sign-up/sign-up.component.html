@@ -11,14 +11,14 @@
     </button>
   </div>
   <!-- <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup);modal.close('Save click')" >  -->
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup, modal);">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup, modal,content);">
     <div class="modal-body">
       <div class="form-containt" id="login">
         <ul class="list-group">
           <li class="list-group-item list-group-item ">
 
             <div class="form-group">
-              <button class="btn btn-facebook"><i class="fa fa-facebook"></i> log in with facebook </button>
+              <button class="btn btn-facebook"><i class="fa fa-facebook"></i> Sign up with facebook </button>
             </div>
             <div class="line">
               <span>Or</span>
@@ -27,7 +27,7 @@
             <div class="form-group">
               <label for="Email">User Name</label>
               <input type="text" class="form-control" formControlName="Username" />
-              <p *ngIf="formGroup.controls.Username.errors?.rangeLength" class="alert alert-danger">Please Enter Valid UserName,rangeLength must between[3:30]</p>
+              <p *ngIf="formGroup.controls.Username.errors?.rangeLength" class="alert alert-danger">Please Enter Valid UserName,range must between[3:30]</p>
               <!-- <div *ngIf="formGroup.get('Username').touch && formGroup.get('Username').invalid " class="alert alert-danger">
                       please enter your email</div>
               -->
@@ -36,7 +36,7 @@
               <div class="form-group">
                 <label for="Email">Email</label>
                 <input type="text" class="form-control" formControlName="Email">
-                <p *ngIf="formGroup.controls.Email.errors?.email"  class="alert alert-danger">Please Enter Valid Email Again Must be Email Format   !</p>
+                <p *ngIf="formGroup.controls.Email.errors?.email"  class="alert alert-danger">Please Enter Valid Email , Example YourName@gmail.com !</p>
                 <ngb-alert  [ngClass]="{'alert alert-warning':msg}" #txt>{{this.msg}}</ngb-alert>
                
               </div>
@@ -44,13 +44,13 @@
               <div class="form-group">
                 <label for="PWD">Password</label>
                 <input type="password" class="form-control" formControlName="Password">
-                <p *ngIf="formGroup.controls.Password.errors?.rangeLength" class="alert alert-danger">Please Enter Valid Password Again, rangeLength must between[8:12] !</p>
+                <p *ngIf="formGroup.controls.Password.errors?.rangeLength" class="alert alert-danger">Please Enter Valid Password, range must between[8:12] !</p>
 
               </div>
               <div class="form-group">
-                <label for="PWD">Repeat Password</label>
+                <label for="PWD">Confirm Password</label>
                 <input type="password" formControlName="confirmPassword" class="form-control">
-                <p *ngIf="formGroup.controls.confirmPassword.errors?.equalTo" class="alert alert-danger">Please Confirm Password Again !
+                <p *ngIf="formGroup.controls.confirmPassword.errors?.equalTo" class="alert alert-danger">Please Confirm Password !
 
                 </p>
             
@@ -58,14 +58,29 @@
               <a href="#" class="d-block my-3">Forgot password?</a>
 
               <div class="form-group">
+                  <ng-template #content let-c="close" let-d="dismiss">
+                      <div class="modal-header" style="background-color:#eefad0">
+                       
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body" style="background-color:#eefad0">
+                        <h4 style="text-align: center">Account Created successfully 😊 </h4>
+                        <br>
+                        <br>
+                      </div>
+                    
+                    </ng-template>
+                    
                 <input type="submit" class="form-control btn btn-login btnSubmit" value="Sign up"
-                  [disabled]="!formGroup.valid" />
+                  [disabled]="!formGroup.valid"  />
               </div>
 
               <div class="line">
-                <span>Or</span>
+                <!-- <span>Or</span> -->
               </div>
-              <a href="#" class="d-block my-3 text-center">Log in with your organization</a>
+              <!-- <a href="#" class="d-block my-3 text-center">Log in with your organization</a> -->
               <p class="text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of
                 Service apply.</p>
 

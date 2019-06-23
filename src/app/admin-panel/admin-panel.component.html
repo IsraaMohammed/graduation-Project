@@ -1,0 +1,13 @@
+<app-nav-log-out class="fixedNav"></app-nav-log-out>
+<div class="container-fluid row" >
+  <div class="col-md-3" style="padding: 0px;">
+    <app-dash-board ></app-dash-board>
+
+  </div>
+  <br>
+  <br>
+      <app-all-users class="col-md-9" *ngIf="toggle else a;" ></app-all-users>
+      <ng-template #a>
+  <app-all-job-profile class="col-md-9"></app-all-job-profile>
+  </ng-template>
+</div>

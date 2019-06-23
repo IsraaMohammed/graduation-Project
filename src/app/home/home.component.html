@@ -1,7 +1,25 @@
 <app-nav-bar></app-nav-bar>
-<div  [ngClass]="'container'" >
-    <div  class="row ">
+
+<div  [ngClass]="'container'"  >
+    <div  class="row  ">
+      
         <app-slider class="col-md-8"  ></app-slider>
                       
       <app-log-in  class="col-md-4"></app-log-in> 
+    
+     
+    </div>
+      <div class="row no-gutters">
+        <div class="card col-md-3 m-5"  *ngFor="let item of jobs">
+          <div style="width: 100%;height:200px; overflow: hidden;" class="img">
+              <img [src]="item.image" height="200px" class="card-img-top" alt="...">
+              </div>
+              <div class="card-body" >
+                <h5 class="card-title">{{item.name}}</h5>
+              
+                <p class="card-text">{{item.description}}</p>
+              </div>
+              </div>
       </div>
+      </div>
+     

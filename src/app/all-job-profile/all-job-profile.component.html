@@ -1,0 +1,25 @@
+
+
+    <table class="table table-hover table-dark tb" style="border-radius: 10px;">
+       <thead>
+         <tr>
+           <th>#</th>
+           <th scope="col">Job Profile</th>
+           <th scope="col">Description</th>
+     <th scope="col">Any Action</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr *ngFor="let job of jobs">
+       <td >{{job.id}}</td>
+       <td >{{job.name}}</td>
+       <td >{{job.description}}</td>
+       <td >
+         <!-- <button class="btn btn-outline-info" style="margin:10%">Add </button> -->
+         
+         <button class="btn btn-outline-danger">Remove</button></td>
+    
+     </tr>
+   <!-- <app-all-users *ngFor="let x of users" [user]="x"></app-all-users> -->
+ </tbody>
+ </table>

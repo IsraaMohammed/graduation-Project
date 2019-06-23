@@ -1,0 +1,9 @@
+.tb{
+    margin: 10% -4% auto;
+}
+.fixedNav{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}

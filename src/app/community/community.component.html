@@ -1,3 +1,76 @@
+<app-nav-log-out class="fixedNav"></app-nav-log-out>
+<div class="container-fluid row">
+  <div class="col-md-3" style="padding: 0px;">
+      <app-side-bar></app-side-bar>
+
+  </div>
+  <br>
+<div class="col-md-9"  style="padding:3%;margin-left:22%;">
+  
+<!-- <div class="content" *ngFor="let q of questions">
+  <div class="card-body">
+    <h2 class="card-title text-primary">{{ q.body }}</h2>
+    <h6 class=" text-info" *ngFor="let qs of q.communityQuestionAnswers">
+      {{ qs.body }}
+    </h6>
+
+  </div>
+</div> -->
+
+ <br>
+<a style="margin-left: 35px" [routerLink]="['/community/addQuestion']" class="btn btn-outline-info btn-lg btn-block my-3"
+  ><i class="fa fa-plus" ></i> Add Question</a>
+
+  <!-- <h1 class="title"><i class="fa fa-comment-dots"></i> Discussions</h1> -->
+    <div class="discussion-card" *ngFor="let q of questions">
+    <img src="../../assets/imgs/user.png">
+    <div class="content" style="height: fit-content">
+      <h2 class="text-info">{{ q.body }}</h2>
+      <h5 class="text-muted"  *ngFor="let qs of q.communityQuestionAnswers">{{ qs.body }}</h5>
+    </div>
+    <div class="actions">
+      <a  (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed"><i class="fa fa-comments"></i></a>
+      <a href="#"><i class="fa fa-share-alt"></i></a>
+     
+    </div>
+     
+  </div>
+ 
+
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+  <div class="card">
+    <div class="card-body">
+      You can collapse this card by clicking Toggle
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /*like -->
 <!-- <ul class="list-group mt-4">
   <li
     class="list-group-item list-group-item-secondary"
@@ -7,19 +80,51 @@
     <p class="text-success">{{ q.email }}</p>
   </li>
 </ul> -->
-<a [routerLink]="['/community/addQuestion']" class="btn btn-primary my-3"
+
+ <!-- <h2 class="text-primary alert alert-danger">{{ q.communityQuestionAnswers }}</h2> -->
+    <!-- <div class="my-2" *ngFor="let q of questions">
+      <h2 class="text-primary alert alert-danger">{{ q.communityQuestionAnswers  }}</h2>
+
+  </div> -->
+    <!--   
+    <div class="my-2" *ngFor="let ans of answers">
+        <h2 class="text-primary alert alert-danger">{{ ans.body }}</h2>
+        <h2 class="text-primary alert alert danger">{{ans.CommuintyQuestion}}</h2>
+
+    </div> -->
+
+    <!-- <h6 class="card-title text-success">{{ q.ModelAnswer }}</h6> -->
+    <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+    <!-- <p class="card-text">{{ q.email }}</p> -->
+    <!-- <a class="card-link"
+      ><i [ngClass]="['fa', 'fa-heart-o']" (click)="onLike(q)"></i
+    ></a> -->
+    <!-- <a href="#" class="card-link">Another link</a> -->
+<!-- */ -->
+
+<!-- <a [routerLink]="['/community/addQuestion']" class="btn btn-primary my-3"
   ><i class="fa fa-plus"></i> Add Question</a
 >
 <div class="card my-2" *ngFor="let q of questions">
   <div class="card-body">
-    <h2 class="card-title text-primary">{{ q.Body }}</h2>
-    <h6 class="card-title text-success">{{ q.ModelAnswer }}</h6>
+    <h2 class="card-title text-primary">{{ q.body }}</h2>
+    <h6 class=" text-info" *ngFor="let qs of q.communityQuestionAnswers">
+      {{ qs.body }}
+    </h6>
 
-    <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-    <!-- <p class="card-text">{{ q.email }}</p> -->
-    <a class="card-link"
-      ><i [ngClass]="['fa', q.icon]" (click)="onLike(q)"></i
-    ></a>
-    <!-- <a href="#" class="card-link">Another link</a> -->
   </div>
-</div>
+</div> -->
+
+<!-- <p>
+  <button type="button" class="btn btn-outline-primary fa fa-plus my-3" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    Add Question
+  </button>
+</p>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+  <div class="card"> 
+    <div class="card-body" >
+     <app-add-question ></app-add-question>
+    </div>
+  </div>
+</div> -->

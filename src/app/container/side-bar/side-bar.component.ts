@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { user } from 'src/app/_Model/user';
 import { UserLoginService } from 'src/app/Services/user-login.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+
 
 
 @Component({
@@ -9,33 +12,42 @@ import { UserLoginService } from 'src/app/Services/user-login.service';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-userInfo: user;
-  constructor(public loginservice:UserLoginService) {
-  //  this.userInfo={
-  //     id:1,Image:'../../assets/imgs/user.png',Username:'Israa Mohamed'
+  userInfo: user;
+  sanitizer: DomSanitizer;
+  SafeResourceUrl: SafeResourceUrl;
+  photourl: string;
+  constructor(public loginservice: UserLoginService, public _sanitizer: DomSanitizer) {
+    //  this.userInfo={
+    //     id:1,Image:'../../assets/imgs/user.png',Username:'Israa Mohamed'
 
-  //   }
-    if(localStorage.getItem('currentUser')){
-      var currentUser= JSON.parse(localStorage.getItem('currentUser'));
-      var Username =currentUser;
-     
-    }
-   this.userInfo={
-      //id:1,Image:'../../assets/imgs/user.png',Username:'Israa Mohamed'
-      id:1,Image:'../../assets/imgs/user.png',Username:Username
+    //   }
+    this.sanitizer = _sanitizer;
 
-    }
-    
-  
-   }
+this.photourl=localStorage.getItem('url').toString();
+this.photourl=this.photourl.substr(1,this.photourl.length-2)
+  }
 
   ngOnInit() {
+    if (localStorage.getItem('currentUser')) {
+      var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      var Username = currentUser;
+
+    }
+
+    this.userInfo = {
+
+      //id:1,Image:'../../assets/imgs/user.png',Username:'Israa Mohamed'
+      id: 1, Image: this.sanitizer.bypassSecurityTrustResourceUrl(this.photourl), Username: Username
+      // id:1,Image:'../../assets/imgs/user.png',Username:Username
+
+    }
   }
-  logOut(){
+  logOut() {
     this.loginservice.logOut();
   }
-  loggedIn(){
+  loggedIn() {
     return this.loginservice.loggedIn();
   }
+
 
 }

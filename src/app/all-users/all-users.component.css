@@ -1,0 +1,18 @@
+.tb{
+    margin: 10% -4% auto;
+}
+.fixedNav{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+.table th
+{
+    text-align: center;
+    border-top: 0 !important;
+}
+.table td
+{
+    text-align:center;
+}

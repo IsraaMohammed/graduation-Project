@@ -12,7 +12,7 @@ import {UserService} from '../Services/user.service'
   styleUrls: ['./photo-editor.component.css']
 })
 export class PhotoEditorComponent implements OnInit {
-  @Input() photos:Photo[];
+  @Input() photos:Photo[] = [];
   uploader:FileUploader;
   hasBaseDropZoneOver:boolean = false;
   // hasAnotherDropZoneOver:boolean = false;
@@ -28,7 +28,7 @@ export class PhotoEditorComponent implements OnInit {
  initializeUpLoad()
  {
    this.uploader=new FileUploader({
-     url:this.baseUrl+'/Photos/addPhoto/'+this.UserLoginService.decodedToken.nameid ,
+     url:this.baseUrl+'/User/'+this.UserLoginService.decodedToken.nameid+'/Photos' ,
      authToken:'bearer '+localStorage.getItem('token'),
      isHTML5:true,
 allowedFileType:['image'],

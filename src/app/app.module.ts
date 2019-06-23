@@ -23,8 +23,6 @@ import { DropDownComponent } from './shared/drop-down/drop-down.component';
 
 import { ErrorComponent } from './error/error.component';
 import { AboutComponent } from './about/about.component';
-
-
 import { HomeComponent } from './home/home.component';
 import { RankComponent } from './rank/rank.component';
 import { JobProfileService } from './Services/job-profile.service';
@@ -42,6 +40,15 @@ import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 import { CommunityComponent } from './community/community.component';
 import { AddQuestionComponent } from './community/add-question/add-question.component';
 
+// import { NgwWowModule } from 'ngx-wow';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { DashBoardComponent } from './dash-board/dash-board.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { AllJobProfileComponent } from './all-job-profile/all-job-profile.component';
+import { AdminAllJobsComponent } from './admin-all-jobs/admin-all-jobs.component';
+import { FailureComponent } from './failure/failure.component';
+
+
 export function tokenGetter(){
   return localStorage.getItem('token ')
 }
@@ -51,6 +58,7 @@ export function tokenGetter(){
 
 @NgModule({
     declarations:[
+  
     AppComponent,
     NavBarComponent,
     LogInComponent,
@@ -66,7 +74,7 @@ export function tokenGetter(){
     AboutComponent,
     CommunityComponent,
     HomeComponent,
-    RankComponent,CourseComponent,ExamComponent, LoginPopupComponent, NavLogOutComponent, PhotoEditorComponent,AddQuestionComponent
+    RankComponent,CourseComponent,ExamComponent, LoginPopupComponent, NavLogOutComponent, PhotoEditorComponent,AddQuestionComponent, AdminPanelComponent, DashBoardComponent, AllUsersComponent, AllJobProfileComponent, AdminAllJobsComponent, FailureComponent
   ],
   imports: [
     BrowserModule, 
@@ -76,6 +84,7 @@ export function tokenGetter(){
     FileUploadModule,
     FormsModule,
     CustomFormsModule,
+    // NgwWowModule,
     ReactiveFormsModule ,
       RouterModule.forRoot([
         { path: 'home', component: HomeComponent },
@@ -87,10 +96,13 @@ export function tokenGetter(){
         {path:'urRank',component:RankComponent},
         {path:'exam',component:ExamComponent},
         {path:'course',component:CourseComponent},
+        {path:'failure',component:FailureComponent},
          {path:'photo',component:PhotoEditorComponent},
          {path:'community/addQuestion', component:AddQuestionComponent},
+         {path:'admin', component:AdminPanelComponent},
+         {path:'allUsers', component:AllUsersComponent},
+        {path:'AdminAllJobsComponent',component:AdminAllJobsComponent},
         { path: '', component: HomeComponent },
-      
         {path: '**', component: ErrorComponent }
       ]),JwtModule.forRoot({
         config:{

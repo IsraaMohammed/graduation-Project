@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="Username">User Name</label>
                     <input type="text" class="form-control" formControlName="Username">
-                    <p *ngIf="formGroup.controls.Username.errors?.rangeLength" class="alert alert-danger">Please Enter Valid UserName</p>
+                    <p *ngIf="formGroup.controls.Username.errors?.rangeLength" class="alert alert-danger">Please Enter Valid User Name</p>
             
                 </div>
   
@@ -46,9 +46,9 @@
                       <input type="submit" class="form-control btn btn-login" value="Sign in" [disabled]="!formGroup.valid" />
                 </div>
                 <div class="line">
-                      <span>Or</span>
+                      <!-- <span>Or</span> -->
                   </div>
-                  <a href="#" class="d-block my-3 text-center">Log in with your organization</a>
+                  <!-- <a href="#" class="d-block my-3 text-center">Log in with your organization</a> -->
                   <p class="text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
   
   </li>

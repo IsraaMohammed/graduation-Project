@@ -1,71 +1,50 @@
-<app-nav-log-out></app-nav-log-out>
+<app-nav-log-out class="fixedNav"></app-nav-log-out>
 <div class="container-fluid row">
   <div class="col-md-3" style="padding: 0px;">
       <app-side-bar></app-side-bar>
 
   </div>
-<div class="col-md-9" >
-  <button (click)="myClickFunction($event)" type="button" id="b" class="btn btn-primary btn-lg btn-block">
-    <i class="fa fa-star"></i>
-    Level 1
-  </button>
-  <div id="myDIV" style="display:none">
-    <div class="form-row">
-     <div class="custom-control custom-checkbox card" style="width: 18rem;">
-          <input type="checkbox" class="custom-control-input" #level1C  />
-          <label class="custom-control-label" for="defaultUnchecked">C</label>
-          <ul>
-            <li><a href="#">Ref 1</a></li>
-            <li><a href="#">Ref 2</a></li>
-            <li><a href="#">Ref 3</a></li>
-            <li><button type="button" class="btn btn-success" (click)="clicked()" routerLink="/exam">Take Exam</button></li>
+  <br>
+<div class="col-md-9"  style="padding:3%;margin-left:22%;">
+  <br>
+  <br>
+  <img src="../../assets/imgs/net.jpg" width="10%"style="border-radius:50%">
+  <h1 class="descrption">
+      .NET Developer Job Description Template</h1>
+      <br>
+      <br>
+      <p>.NET Framework is a software framework developed by Microsoft. It is powerful, flexible, and can be adapted to a broad range of uses. Every .NET developer should be at least proficient either in using VB.NET or C#, or even better, both languages. The great .NET developer should be capable of handling many aspects of the application, including but not limited to performance, scalability, security, and testing. A fully knowledgeable .NET developer can use .NET to build a highly distributed web application, a sophisticated desktop application, or even a modern mobile application. Additional knowledge about Mono is a plus, as the combination of .NET and Mono allows for an even a wider range of platforms to be targeted.</p>
+ <br>
+ <br>
+ <div class="container" *ngFor="let item of levels">
+    <button (click)="myClickFunction($event)" type="button" id="b" class="btn btn-primary btn-lg btn-block">
+      <i class="fa fa-star"></i>
+      {{item.name}}
+  
+    </button>
+    <div id="myDIV" style="display:none">
+      <div class="form-row">
+        <div class="custom-control custom-checkbox card" style="width: 18rem;" *ngFor="let i of  item.courses;index as d">
+          <div>
+            <input type="checkbox" checked=true class="custom-control-input" #level1C />
+          </div>
+          <label class="custom-control-label" for="defaultUnchecked"> {{i.name}}</label>
+          <ul *ngFor="let r of i.resources">
+            <li><a href="#">{{r}}</a></li>
           </ul>
-      </div> 
- 
-      <div class="custom-control custom-checkbox card" style="width: 18rem;">
-          <input type="checkbox" class="custom-control-input" name="level1"  />
-          <label class="custom-control-label" for="defaultUnchecked">C++</label>
-          <ul>
-            <li><a href="#">Ref 1</a></li>
-            <li><a href="#">Ref 2</a></li>
-            <li><a href="#">Ref 3</a></li>
-            <li><button  type="button" class="btn btn-success" routerLink="/exam">Take Exam</button></li>
-          </ul>
-      </div> 
+          <app-button text="Take Exam" routerLink="/exam" (clickbtn)="takeExam(i.id)"></app-button>
+  
+        </div>
+      <div>
     </div>
+    <br/>
+    
+    <!-- <app-button text="YOUR GRADES" routerLink="/UserGrades" class="btn-lg"></app-button> -->
+  </div>
+  <div style="display:none">
+   <p>Please Put a Project </p>
+   
+  </div>
+    
+  </div>
   
-  </div>
-
-  
-  <button (click)="myClickFunction($event)" type="button" class="btn btn-primary btn-lg btn-block" disabled>
-  
-    <i class="fa fa-star"></i>
-    Level 2
-  </button>
-  <div id="myDIV" style="display:none">
-    This is a DIV element.
-  </div>
-
-
-
-  <button (click)="myClickFunction($event)" type="button" class="btn btn-primary btn-lg btn-block" disabled>
-    <i class="fa fa-star"></i>
-    Level 3
-  </button>
-
-  <div id="myDIV" style="display:none">
-    This is a DIV element.
-  </div>
-
-
-
-  <button (click)="myClickFunction($event)" type="button" class="btn btn-primary btn-lg btn-block" disabled>
-    <i class="fa fa-star"></i>
-    Level 4
-  </button>
-  <div id="myDIV" style="display:none">
-    This is a DIV element.
-  </div>
-
-</div>
-</div>

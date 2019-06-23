@@ -1,14 +1,41 @@
+
+    
+      
 <form>
-<div class="card" *ngFor="let ex of Exam" >
-  <h4>{{ex.Question}}</h4>
-  <select class="custom-select" id="custom-select1" >
-      <option selected disabled>Choose Correct Answer</option>
-      <option value="1">A</option>
-      <option value="2">B</option>
+  <div class="card" *ngFor="let ex of exam ;index as i">
+    <h4>Q{{i+1}} - {{ex.questionBody}}</h4>
+    <div>
+      <select class="custom-select" id="custom-select1">
+        <option selected disabled>Choose Correct Answer</option>
+        <option *ngFor="let a of ex.choices">{{a}}</option>
+        <!-- <option value="2">B</option>
       <option value="3">C</option>
       <option value="4">D</option>
-      <option value="5">E</option>
-    </select>
-</div>
-<input class="btn btn-success btn-lg" type="submit" value="Submit"(click)="correctingExam()">
-</form> 
+      <option value="5">E</option> -->
+      </select></div>
+  </div>
+  <!-- <button class="btn btn-success btn-lg" type="button" (click)="correctingExam()">Submit</button> -->
+  <app-button text="Submit" (clickbtn)="correctingExam(modal)"></app-button>
+  <!-- <app-modal ></app-modal>  -->
+  
+
+</form>
+
+<!-- <div class="modal-dialog" role="document" hidden>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Modal title</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Sorry you did not pass this Exam ... your rate is </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary">Take Another Exam</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+
+</div> -->

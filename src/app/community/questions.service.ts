@@ -7,17 +7,17 @@ import { tap, catchError } from "rxjs/operators";
   providedIn: "root"
 })
 export class QuestionsService {
+  apiUrl="http://localhost:49444/api/CommunityQuestions";
   constructor(private http: HttpClient) {}
-
   getQuestions(): Observable<Question[]> {
-    return this.http.get<Question[]>("./assets/data.json").pipe(
+    return this.http.get<Question[]>(this.apiUrl).pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   postQuestion(x) {
-    return this.http.post("./assets/data.json", x);
+    return this.http.post(this.apiUrl, x);
   }
 
   handleError(err: HttpErrorResponse) {

@@ -15,18 +15,22 @@ export class UserService {
 baseUrl=environment.apiUrl;
   constructor(private http:HttpClient) { }
 getUsers(): Observable<user[]>{
-  return this.http.get<user[]>(this.baseUrl + 'users');
+  return this.http.get<user[]>(this.baseUrl + '/users');
 }
 getUser(id):Observable<user>{
-  return this.http.get<user>(this.baseUrl + 'users/' +id);
+  return this.http.get<user>(this.baseUrl + '/users/' +id);
+
+}
+deletetUser(id):Observable<user>{
+  return this.http.delete<user>(this.baseUrl + '/users/' +id);
 
 }
 updateUser(id:number,user:user)
 {
-  return this.http.put(this.baseUrl + 'users/' +id,user)
+  return this.http.put(this.baseUrl + '/users/' +id,user)
 }
 setMainPhoto(userId:number,id:number)
 {
-  return this.http.post(this.baseUrl+ 'users/' + userId +'photos/' +id +'setMain' ,{})
+  return this.http.post(this.baseUrl+ '/users/' + userId +'photos/' +id +'setMain' ,{})
 }
 }

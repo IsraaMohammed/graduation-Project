@@ -1,0 +1,22 @@
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Sorry you did not pass this Exam ... your rate is {{exGrade}}</p>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Take Another Exam</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <app-button text="Take Another Exam" routerLink="/exam" (clickbtn)="takeExam(examId)"></app-button>
+        <app-button text="Back" routerLink="/course" ></app-button>
+        
+      </div>
+    </div>
+  </div>
+  

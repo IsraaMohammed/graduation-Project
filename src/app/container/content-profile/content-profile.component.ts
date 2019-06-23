@@ -3,7 +3,7 @@ import { jobProfile } from 'src/app/_Model/jobProfileCards';
 import {JobProfileService} from '../../Services/job-profile.service';
 import { Subscription } from 'rxjs';
 import { UserLoginService } from 'src/app/Services/user-login.service';
-
+// import { NgwWowModule } from 'ngx-wow';
 
 @Component({
   selector: 'app-content-profile',
@@ -13,23 +13,33 @@ import { UserLoginService } from 'src/app/Services/user-login.service';
 export class ContentProfileComponent implements OnInit {
   data: jobProfile[]=[];
   loginservice: UserLoginService;
+ 
   // jobObservable:Subscription;
   constructor(private jobProfileService:JobProfileService,private _loginservice:UserLoginService) { 
     this.loginservice = _loginservice;
-    // this.data=[
-    //   {id:1, name:'.NET Developer', image:'../../assets/imgs/dotnet.png',describtion:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'},
-    //   {id:2, name:'Frontend Angular', image:'../../assets/imgs/front.png',describtion:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'},
-    //   {id:3, name:'Frontend React', image:'../../assets/imgs/web-development.png',describtion:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'}
-    //   ,{id:3, name:'Frontend React', image:'../../assets/imgs/web-development.png',describtion:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'}
-
-    // ]
+ 
     
    }
    
   
-
+  //  const wow = new WOW(
+  //   {
+  //     boxClass:     'wow',      // animated element css class (default is wow)
+  //     animateClass: 'animated', // animation css class (default is animated)
+  //     offset:       0,          // distance to the element when triggering the animation (default is 0)
+  //     mobile:       true,       // trigger animations on mobile devices (default is true)
+  //     live:         true,       // act on asynchronously loaded content (default is true)
+  //     callback:     function(box) {
+  //       // the callback is fired every time an animation is started
+  //       // the argument that is passed in is the DOM node being animated
+  //     },
+  //     scrollContainer: null,    // optional scroll container selector, otherwise use window,
+  //     resetAnimation: true,     // reset animation on end (default is true)
+  //   }
+  // );
+  // wow.init();
   ngOnInit() {
-
+    // new WOW().init();
     this.jobProfileService.getAllJobs()
     .then(res => {
       this.data = res.data;
