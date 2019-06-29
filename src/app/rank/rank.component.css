@@ -55,8 +55,8 @@ h2 {
   height: 30px;
   position: absolute;
   top: 69px;
-  left: 95%;
-  margin-left: -15px;
+  /* left: 95%; */
+  margin-left: -20px;
   background-color: #f5efed;
   border: 5px solid #d5dfe5;
   content: "";
@@ -68,7 +68,7 @@ h2 {
   top: -300px;
   display: none;
   width: 350px;
-  left: 50px;
+  /* left: 50px; */
   cursor: auto;
 }
 .timeline .timeline-item .timeline-content.fadeIn {
@@ -95,7 +95,7 @@ h2 {
 .dropdown {
   /*  */
 
-  width: 400px;
+  width: 345px;
 
   border: 2px solid #b1b1b1;
   height: 326px;
@@ -173,4 +173,7 @@ h2 {
 .levels{
 padding: 10% ;
 
+}
+.hexagon:before, .hexagon:after {
+  left: 0px !important;
 }

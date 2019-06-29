@@ -16,8 +16,8 @@ export class FailureComponent implements OnInit {
   examId:number=this.services.examID;
   ngOnInit() {
   }
-  takeExam(id:number){
-    this.services.getExamByCourseID(id).subscribe(Response=>{//console.log(Response);
+  takeExam(){
+    this.services.getExamByCourseID(this.services.courseID).subscribe(Response=>{//console.log(Response);
       this.e=Object.assign({},Response);
       for(let i in Response)
       { this.exam.push(Response[i])}

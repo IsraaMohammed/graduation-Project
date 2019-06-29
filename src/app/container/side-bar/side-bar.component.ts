@@ -13,6 +13,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class SideBarComponent implements OnInit {
   userInfo: user;
+  photoExist:boolean;
   sanitizer: DomSanitizer;
   SafeResourceUrl: SafeResourceUrl;
   photourl: string;
@@ -22,9 +23,11 @@ export class SideBarComponent implements OnInit {
 
     //   }
     this.sanitizer = _sanitizer;
+    this.photoExist=false;
 
-this.photourl=localStorage.getItem('url').toString();
-this.photourl=this.photourl.substr(1,this.photourl.length-2)
+    //error here
+this.photourl=localStorage.getItem('url');
+// this.photourl=this.photourl.substr(1,this.photourl.length-2)
   }
 
   ngOnInit() {
@@ -35,12 +38,16 @@ this.photourl=this.photourl.substr(1,this.photourl.length-2)
     }
 
     this.userInfo = {
-
       //id:1,Image:'../../assets/imgs/user.png',Username:'Israa Mohamed'
       id: 1, Image: this.sanitizer.bypassSecurityTrustResourceUrl(this.photourl), Username: Username
       // id:1,Image:'../../assets/imgs/user.png',Username:Username
 
     }
+    if( this.photourl)
+    {
+        this.photoExist=true;
+    }
+  
   }
   logOut() {
     this.loginservice.logOut();

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -13,7 +13,11 @@ flag: boolean;
   constructor() { 
     this.flag=true;
     this.home=false;
+    setTimeout(()=>{this.load.nativeElement.style.display='none'},3500)
+    //3500
   }
+  @ViewChild('loading')
+  load:ElementRef;
 
   ngOnInit() {
   

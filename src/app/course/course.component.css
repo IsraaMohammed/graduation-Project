@@ -34,3 +34,11 @@ li{
     top: 0;
     z-index: 999;
 }
+.custom-control-input{
+    z-index: 1 !important;
+    opacity: 1 !important;
+    left: 17px !important;
+    top: 45px !important;
+    width: 15px;
+    height: 15px;
+}

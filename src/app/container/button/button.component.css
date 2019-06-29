@@ -1,0 +1,9 @@
+.btntake{
+    background-color: #deeff2;
+    
+
+}
+.btntake:hover{
+    background-color: rgb(23, 105, 110);
+    color:white !important;
+}

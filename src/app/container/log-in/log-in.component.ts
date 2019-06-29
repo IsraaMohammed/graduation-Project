@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserLoginService } from 'src/app/Services/user-login.service';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
@@ -19,7 +19,6 @@ formGroup:FormGroup;
   constructor(private loginservice:UserLoginService, private router: Router) { 
     this.show=false;
   }
-
   ngOnInit() {
     this.formGroup=new FormGroup({
       Username:new FormControl('',CustomValidators.rangeLength([3,30])),

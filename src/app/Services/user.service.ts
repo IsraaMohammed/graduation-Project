@@ -22,7 +22,7 @@ getUser(id):Observable<user>{
 
 }
 deletetUser(id):Observable<user>{
-  return this.http.delete<user>(this.baseUrl + '/users/' +id);
+  return this.http.delete<user>(this.baseUrl + '/Users/' +id);
 
 }
 updateUser(id:number,user:user)

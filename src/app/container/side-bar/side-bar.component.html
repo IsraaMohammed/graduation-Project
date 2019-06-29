@@ -172,7 +172,17 @@
     <div class="sidebar-background" style="background-image: url('../../assets/imgs/bg1.jpg')">
         <div class="sidebar-wrapper">
             <div class="logo">
-                <img [src]="userInfo.Image" class="img-fluid photo-radius ">
+                <!-- <div  [ngSwitch]="photoExist">
+                <img [src]="'../../assets/imgs/user.png'" class="img-fluid photo-radius" *ngSwitchCase="'!photoExist'">
+                <img [src]="userInfo.Image" class="img-fluid photo-radius" *ngSwitchCase="'photoExist'">
+            </div> -->
+            <!-- <img [src]="'../../assets/imgs/user.png'" class="img-fluid photo-radius" *ngIf="NoPhoto">
+            <img [src]="userInfo.Image" class="img-fluid photo-radius" *ngIf="!NoPhoto" > -->
+            <img [src]="userInfo.Image" class="img-fluid photo-radius" *ngIf="photoExist">
+            <img [src]="'../../assets/imgs/user.png'" class="img-fluid photo-radius" *ngIf="!photoExist">
+
+
+              
             </div>
 
             <div class="user-info" style="list-style: none;">

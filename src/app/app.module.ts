@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {CustomFormsModule} from 'ng2-validation';
+import { CustomFormsModule } from 'ng2-validation';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LogInComponent } from './container/log-in/log-in.component';
 import { ContainerComponent } from './container/container.component';
@@ -39,6 +39,9 @@ import { AlertifyService } from './Services/alertify.service';
 import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 import { CommunityComponent } from './community/community.component';
 import { AddQuestionComponent } from './community/add-question/add-question.component';
+import { AllProfilesNewComponent } from './all-profiles-new/all-profiles-new.component';
+import { UserjobprofilesComponent } from './userjobprofiles/userjobprofiles.component';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 // import { NgwWowModule } from 'ngx-wow';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -49,7 +52,7 @@ import { AdminAllJobsComponent } from './admin-all-jobs/admin-all-jobs.component
 import { FailureComponent } from './failure/failure.component';
 
 
-export function tokenGetter(){
+export function tokenGetter() {
   return localStorage.getItem('token ')
 }
 
@@ -57,8 +60,8 @@ export function tokenGetter(){
 
 
 @NgModule({
-    declarations:[
-  
+  declarations: [
+
     AppComponent,
     NavBarComponent,
     LogInComponent,
@@ -74,45 +77,51 @@ export function tokenGetter(){
     AboutComponent,
     CommunityComponent,
     HomeComponent,
-    RankComponent,CourseComponent,ExamComponent, LoginPopupComponent, NavLogOutComponent, PhotoEditorComponent,AddQuestionComponent, AdminPanelComponent, DashBoardComponent, AllUsersComponent, AllJobProfileComponent, AdminAllJobsComponent, FailureComponent
+    RankComponent, CourseComponent, ExamComponent, LoginPopupComponent, NavLogOutComponent, PhotoEditorComponent, AddQuestionComponent, AdminPanelComponent, DashBoardComponent, AllUsersComponent, AllJobProfileComponent, AdminAllJobsComponent, FailureComponent
+    , AllProfilesNewComponent,
+    UserjobprofilesComponent
   ],
   imports: [
-    BrowserModule, 
-    AppRoutingModule,   
+    BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     NgbModule,
     FileUploadModule,
     FormsModule,
     CustomFormsModule,
     // NgwWowModule,
-    ReactiveFormsModule ,
-      RouterModule.forRoot([
-        { path: 'home', component: HomeComponent },
-        { path: 'container', component: ContainerComponent },
-        { path: 'community', component: CommunityComponent },
-        { path: 'signup', component: SignUpComponent },
-        { path: 'login', component: LogInComponent },
-        { path: 'about', component: AboutComponent },
-        {path:'urRank',component:RankComponent},
-        {path:'exam',component:ExamComponent},
-        {path:'course',component:CourseComponent},
-        {path:'failure',component:FailureComponent},
-         {path:'photo',component:PhotoEditorComponent},
-         {path:'community/addQuestion', component:AddQuestionComponent},
-         {path:'admin', component:AdminPanelComponent},
-         {path:'allUsers', component:AllUsersComponent},
-        {path:'AdminAllJobsComponent',component:AdminAllJobsComponent},
-        { path: '', component: HomeComponent },
-        {path: '**', component: ErrorComponent }
-      ]),JwtModule.forRoot({
-        config:{
-          tokenGetter: tokenGetter,
-          whitelistedDomains:['localhost:49444'],
-          blacklistedRoutes:['localhost:49444/api/Auth']
-        }
-      })
-       ],
-       providers: [JobProfileService,AlertifyService,UserRegisterService,UserLoginService,ServecesService],
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: 'home', component: HomeComponent },
+      { path: 'container', component: ContainerComponent },
+      { path: 'community', component: CommunityComponent },
+      { path: 'signup', component: SignUpComponent },
+      { path: 'login', component: LogInComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'urRank', component: RankComponent },
+      { path: 'exam', component: ExamComponent },
+      { path: 'course', component: CourseComponent },
+      { path: 'failure', component: FailureComponent },
+      { path: 'photo', component: PhotoEditorComponent },
+      { path: 'community/addQuestion', component: AddQuestionComponent },
+      { path: 'admin', component: AdminPanelComponent },
+      { path: 'allUsers', component: AllUsersComponent },
+      { path: 'AdminAllJobsComponent', component: AdminAllJobsComponent },
+      { path: 'userjobprofiles', component: UserjobprofilesComponent },
+      { path: '', component: HomeComponent },
+      { path: '**', component: ErrorComponent }
+    ]), 
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:49444'],
+        blacklistedRoutes: ['localhost:49444/api/Auth']
+      }
+    }),
+    
+    NgFlashMessagesModule.forRoot()
+  ],
+  providers: [JobProfileService, AlertifyService, UserRegisterService, UserLoginService, ServecesService],
 
   bootstrap: [AppComponent]
 })

@@ -8,6 +8,9 @@
     right: 0;
     border-radius: 0;
 }
+.navbar {
+    padding: 0px;
+}
 nav.navbar-light .collapse .navbar-nav li a {
     font-size: 16px;
 }

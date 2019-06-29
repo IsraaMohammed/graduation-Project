@@ -18,19 +18,15 @@ export class AllUsersComponent implements OnInit {
     this.userservice.getUsers().subscribe((data:user[])=>  {this.users = data;
       console.log(this.users);
   }
-  
-    )
+   )
 }
 
 removeUser(id:number)
 {
- 
   this.userservice.deletetUser(id).subscribe(data=>{
     console.log(data);
-   
-    console.log(this.users)
-    
+   let index = this.users.findIndex(el=>el.id===id);
+   this.users.splice(index,1);
   });
-  this.users.splice(id,1);
 }
 }

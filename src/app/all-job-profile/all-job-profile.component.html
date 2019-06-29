@@ -1,4 +1,31 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Job Profile</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form class="text-center border border-light p-5" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup, modal)">
 
+            <!-- JobProfile  -->
+            
+            <label for="Job" style="font-size: 30px">JobProfile :  <input type="text" formControlName="Name" id="name" class="form-control mb-4" placeholder="JobProfile">
+            </label>
+
+            <!-- Description -->
+           <label for="Dec" style="font-size: 30px">Description : <input type="text" formControlName="Desc" id="desc" class="form-control mb-4" placeholder="Description">
+           </label> 
+          <br>
+
+           <input type="submit" class="btn btn-info btn-primary" value="Add" [disabled]="!formGroup.valid" />
+
+          </form>
+    </div>
+    
+  </ng-template>
+<div>
+    <button class="btn btn-outline-primary tb  btn-lg btn-block" (click)="open(content)">Add Job Profile</button>
 
     <table class="table table-hover table-dark tb" style="border-radius: 10px;">
        <thead>
@@ -17,7 +44,7 @@
        <td >
          <!-- <button class="btn btn-outline-info" style="margin:10%">Add </button> -->
          
-         <button class="btn btn-outline-danger">Remove</button></td>
+         <button class="btn btn-outline-danger"  (click)="removeJobProfile(job.id)">Remove</button></td>
     
      </tr>
    <!-- <app-all-users *ngFor="let x of users" [user]="x"></app-all-users> -->

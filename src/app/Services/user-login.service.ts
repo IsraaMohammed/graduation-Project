@@ -43,15 +43,14 @@ user:user;
 jwtHelper=new JwtHelperService();
 decodedToken :any;
 isLoggedIn:boolean=false;
+currentUserID:number;
   constructor(private http:HttpClient) { }
 
   LoginUser(user:user)
   {
     const body :user={
       "Username":user.Username,
-      "Password":user.Password,
-      "Image":user.Image,
-    
+      "Password":user.Password
        }
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };  
     // const httpOptions = { headers: { 'Content-Type': 'application/json' } };  
@@ -62,15 +61,10 @@ isLoggedIn:boolean=false;
    
           localStorage.setItem('token',user.token);
           localStorage.setItem('currentUser',JSON.stringify(body.Username));
-          // localStorage.setItem('url',JSON.stringify(body.Image));
-          // localStorage.setItem('email',JSON.stringify(body.Email));
-          // localStorage.setItem('password',JSON.stringify(body.Password));
           this.decodedToken=this.jwtHelper.decodeToken(user.token);
-          console.log(this.decodedToken.unique_name[1]);
-          localStorage.setItem('url',JSON.stringify(this.decodedToken.unique_name[1]));
-          // console.log(this.decodedToken.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/uri);
-         
-
+          localStorage.setItem('url',this.decodedToken["unique_name"][1]);
+          console.log(this.decodedToken.nameid);
+          this.currentUserID=this.decodedToken.nameid;
           // console.log(user.token)
           this.isLoggedIn=true;
 

@@ -3,3 +3,11 @@
     transition: all .5s ease-in-out;
    
 }
+.description{
+    text-align: center;
+    width: 100%;
+   
+}
+h1 {
+    font-size: 5rem;
+}

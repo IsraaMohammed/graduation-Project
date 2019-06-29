@@ -5,5 +5,6 @@ export interface userJobProfile{
     profileId?:number;
     level?:number;
     jobProfileId?:number;
+    image?:string;
 
 } 

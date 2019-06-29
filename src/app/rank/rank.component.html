@@ -1,32 +1,48 @@
 <app-nav-log-out></app-nav-log-out>
 <div class="container-fluid row">
   <div class="col-md-3" style="padding: 0px;">
-      <app-side-bar></app-side-bar>
+    <app-side-bar></app-side-bar>
 
   </div>
-<div class="col-md-9" >
-<section>
-  <!-- <div class="container"> -->
-    <h1 class="text-center">Your Rank</h1>
-    <div class="timeline flex-container">
-      <div class="timeline-item flex-items-default selected">
-        <div class="timeline-content text-left animated bounceIn">
-          <h2>Level 1</h2>
-          <p>
-            Congratulations! You Passed This Level.
-          </p>
-          <div class="hexagon"></div>
-          <!-- <i class="material-icons">explore</i> -->
-          <div class="levels">
-             <ul>
-              
-                <li style="cursor:pointer;padding:2px;list-style: none;" onclick="appendToMessage(event)" *ngFor="let item of levels" >😊  {{item}}</li>
-            
-           
-          </ul></div>
+  <div class="col-md-9">
+    <section>
+      <!-- <div class="container"> -->
+      <h1 class="text-center">Your Rank in {{jobProfileData.name}}</h1>
+      <div class="timeline flex-container d-flex">
+        <div class="timeline-item flex-items-default selected" (click)="myClickFunction($event)" [hidden]="ranked"
+          *ngFor="let level of levels" style="flex-grow: 1">
+          <div class="timeline-content animated bounceIn" style="z-index: 10">
+            <h2>{{level.name}}</h2>
+            <p>
+              Your score is
+            </p>
+            <div class="hexagon"></div>
+            <!-- <i class="material-icons">explore</i> -->
+            <div class="levels">
+              <ul style="text-align: left">
+
+                <li style="cursor:pointer;padding:2px;list-style: none;" onclick="appendToMessage(event)"
+                  *ngFor="let item of level.courses">
+                  <span *ngIf="item.grade>=50" style="font-size: 24">your grade in
+                    {{item.name}} is <span style="color: green">{{item.grade}} </span> 😊 </span>
+                  <span *ngIf="item.grade<50"> your grade in {{item.name}} is <span style="color: red"> {{item.grade}}
+                    </span> 😢 </span></li>
+
+
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown animated bounceIn">
+            <div class="inner">
+              <div class="arrow-down"></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="timeline-item flex-items-default">
+    </section>
+  </div>
+</div>
+<!-- <div class="timeline-item flex-items-default">
         <div class="timeline-content text-left">
           <h2>Level 2</h2>
           <p>
@@ -57,8 +73,8 @@
           <div class="hexagon"></div>
           <i class="material-icons">rate_review</i>
         </div>
-      </div>
-      <!-- <div class="timeline-item flex-items-default">
+      </div> -->
+<!-- <div class="timeline-item flex-items-default">
           <div class="timeline-content text-left">
             <h2>Ship</h2>
             <p>
@@ -69,15 +85,34 @@
             <i class="material-icons">important_devices</i>
           </div>
         </div> -->
+<!-- <div *ngFor="let level of levels">
+        <div class="timeline-content text-left animated bounceIn">
+          <h2>{{level.name}}</h2>
+          <p>
+            Congratulations! You Passed This Level.
+          </p>
+          <div class="hexagon"></div>
+          <i class="material-icons">explore</i> 
+          <div class="levels">
+            <ul>
 
-      <div class="dropdown animated bounceIn" style="left: 12px;">
-        <div class="inner">
-          <div class="arrow-down"></div>
-         
-        </div>
-      </div>
-    </div>
-  <!-- </div> -->
-</section>
-</div>
-</div>
+              <li style="cursor:pointer;padding:2px;list-style: none;" onclick="appendToMessage(event)"
+                *ngFor="let item of level.courses">😊 {{item.name}}</li>
+
+
+            </ul>
+          </div> -->
+<!-- <div class="dropdown animated bounceIn" style="left: 12px;">
+            <div class="inner">
+
+              <div class="arrow-down">
+
+              </div>
+            </div>
+          </div> -->
+<!-- </div>
+
+</div> -->
+<!-- </div> -->
+<!-- </section> -->
+<!-- </div> -->

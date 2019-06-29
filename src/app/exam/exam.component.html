@@ -1,26 +1,27 @@
-
-    
-      
-<form>
-  <div class="card" *ngFor="let ex of exam ;index as i">
-    <h4>Q{{i+1}} - {{ex.questionBody}}</h4>
-    <div>
-      <select class="custom-select" id="custom-select1">
-        <option selected disabled>Choose Correct Answer</option>
-        <option *ngFor="let a of ex.choices">{{a}}</option>
-        <!-- <option value="2">B</option>
+<div class="container">
+  <form>
+    <div class="card" *ngFor="let ex of exam ;index as i">
+      <h4>Q{{i+1}} - {{ex.questionBody}}</h4>
+      <div>
+        <select class="custom-select" id="custom-select1">
+          <option selected disabled>Choose Correct Answer</option>
+          <option *ngFor="let a of ex.choices">{{a}}</option>
+          <!-- <option value="2">B</option>
       <option value="3">C</option>
       <option value="4">D</option>
       <option value="5">E</option> -->
-      </select></div>
-  </div>
-  <!-- <button class="btn btn-success btn-lg" type="button" (click)="correctingExam()">Submit</button> -->
-  <app-button text="Submit" (clickbtn)="correctingExam(modal)"></app-button>
-  <!-- <app-modal ></app-modal>  -->
-  
+        </select></div>
+    </div>
+    <!-- <button class="btn btn-success btn-lg" type="button" (click)="correctingExam()">Submit</button> -->
+    
+    <app-button text="Submit" (clickbtn)="correctingExam(modal)"></app-button>
+    <ng-flash-message></ng-flash-message>
 
-</form>
+    <!-- <app-modal ></app-modal>  -->
 
+
+  </form>
+</div>
 <!-- <div class="modal-dialog" role="document" hidden>
   <div class="modal-content">
     <div class="modal-header">

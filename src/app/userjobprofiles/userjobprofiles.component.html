@@ -1,0 +1,17 @@
+<app-nav-log-out class="fixedNav"></app-nav-log-out>
+<div class="container-fluid row">
+  <div class="col-md-3" style="padding: 0px;">
+      <app-side-bar></app-side-bar>
+
+  </div>
+  <br>
+  <div class="col-md-9" style="padding:3%;"> 
+    <!-- <p class="h3 txt border-button ">Now , You Can Choose Your Career Path <i class="fa fa-hand-o-down"></i> </p> -->
+  <br>
+  <br>
+    <div class="row no-gutters">
+    <app-card-item class="card col-md-3 m-3" *ngFor="let x of data" [item]="x"></app-card-item>
+  </div>
+</div>
+</div>
+ 

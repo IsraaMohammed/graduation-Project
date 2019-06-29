@@ -74,7 +74,7 @@ content:string;
         this.show = true;
        
        
-       
+        
       }
 
 

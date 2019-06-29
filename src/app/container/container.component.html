@@ -1,5 +1,6 @@
 <!-- <div  [ngClass]="{'container-fluid':!home}" class="container"> -->
-    <app-nav-log-out class="fixedNav"></app-nav-log-out>
+  <div id="loading" #loading ></div> 
+  <app-nav-log-out class="fixedNav"></app-nav-log-out>
   <div [ngClass]="{'container-fluid':!home, 'container':home}"style="margin-top: 74px">
 
   <div *ngIf="home else a;">
